@@ -7,19 +7,19 @@
   inputs.flakeNimbleLib.type  = "github";
   inputs.flakeNimbleLib.inputs.nixpkgs.follows = "nixpkgs";
   
-  inputs.src-nim-libgd-master.flake = false;
-  inputs.src-nim-libgd-master.ref   = "refs/heads/master";
-  inputs.src-nim-libgd-master.owner = "mrhdias";
-  inputs.src-nim-libgd-master.repo  = "nim-libgd";
-  inputs.src-nim-libgd-master.type  = "github";
+  inputs.src-libgd-master.flake = false;
+  inputs.src-libgd-master.ref   = "refs/heads/master";
+  inputs.src-libgd-master.owner = "mrhdias";
+  inputs.src-libgd-master.repo  = "nim-libgd";
+  inputs.src-libgd-master.type  = "github";
   
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
   let 
     lib  = flakeNimbleLib.lib;
-    args = ["self" "nixpkgs" "flakeNimbleLib" "src-nim-libgd-master"];
+    args = ["self" "nixpkgs" "flakeNimbleLib" "src-libgd-master"];
   in lib.mkRefOutput {
     inherit self nixpkgs ;
-    src  = deps."src-nim-libgd-master";
+    src  = deps."src-libgd-master";
     deps = builtins.removeAttrs deps args;
     meta = builtins.fromJSON (builtins.readFile ./meta.json);
   };

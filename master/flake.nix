@@ -11,7 +11,6 @@
   inputs.src-libgd-master.ref   = "refs/heads/master";
   inputs.src-libgd-master.owner = "mrhdias";
   inputs.src-libgd-master.repo  = "nim-libgd";
-  inputs.src-libgd-master.dir   = "";
   inputs.src-libgd-master.type  = "github";
   
   outputs = { self, nixpkgs, flakeNimbleLib, ...}@deps:
